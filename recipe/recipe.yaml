@@ -11,9 +11,11 @@ package:
 source:
   url: https://files.pythonhosted.org/packages/source/h/hv-anndata/hv_anndata-${{ version }}.tar.gz
   sha256: dbc49fa95ba09953c3db0865ce5af0bd765cd4c2ec7d9f5286015c6635a0f879
+  patches:
+    - 000-import-fix.patch
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
 
@@ -31,7 +33,6 @@ requirements:
     - holoviews >=1.23
     - numpy
     - pandas
-    - scanpy
 
 tests:
   - python:
